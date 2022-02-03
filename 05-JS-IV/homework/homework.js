@@ -146,10 +146,11 @@ function sumarLikesDeUsuario(usuario) {
   // Devuelve la suma
   // Tu código:
   let suma = 0;
-  for (let i = 0; i < usuario.length; i++){
-    suma = suma + usuario.posts[i][2]
-    return suma
+    for (let i = 0; i < usuario.posts.length; i++){
+      suma = suma + usuario.posts[i].likes
+      
   }
+  return suma
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -162,6 +163,11 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
+  producto.calcularPrecioDescuento = function(){
+    return producto.precio - producto.precio * producto.porcentajeDeDescuento  
+    //objeto.propiedad asi ase llama, en este caso podria ser this.precio, sustituye pero no siempre se puede y puede ser confuso.
+  }
+  return producto;
 
 }
 
